@@ -30,11 +30,15 @@ public class DemoApplication {
 	private static String DATABASE = "weather";
 	private static String MONGODB_COLLECTION = "weather_data";
 
-	public static void main(String[] args) throws IOException, CsvValidationException, ParseException {
+	public static void main(String[] args) throws IOException, ParseException {
 		SpringApplication.run(DemoApplication.class, args);
 
 
-		BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(PATH_FILE));
+		//BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(PATH_FILE));
+		// args[0]: Path to the .csv file
+
+		// Run jar-File command : java -jar demo-0.0.1-SNAPSHOT.jar src/main/resources/weather_data.csv
+		BufferedReader bufferedReader = Files.newBufferedReader(Paths.get(args[0]));
 
 
 		List<String[]> dataList = new ArrayList();
